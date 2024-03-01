@@ -1,8 +1,13 @@
 import requests 
 from rembg import remove
+import os
 
 url = 'https://media.geeksforgeeks.org/wp-content/uploads/'
 image_urls = ['20240302025345/black_rook.png', '20240302025325/white_knight.png', '20240302025943/white_king.png', '20240302025944/white_bishop.png', '20240302025945/black_pawn.png', '20240302025946/black_queen.png', '20240302025947/black_knight.png', '20240302025948/black_king.png', '20240302025949/white_rook.png', '20240302025951/black_bishop.png', '20240302025952/white_queen.png', '20240302025953/white_pawn.png']
+
+# Create the 'images' directory if it doesn't already exist
+if not os.path.exists('images/'):
+    os.makedirs('images/')
 
 for i in image_urls:
     new_url = url + i
@@ -12,5 +17,5 @@ for i in image_urls:
     removed_bg = remove(data)
     
     # Save the image with the background removed
-    with open('./images/'+i[i.index("/"):], 'wb') as f:   
+    with open('images/'+i[i.index("/") + 1:], 'wb') as f:   
         f.write(removed_bg)
