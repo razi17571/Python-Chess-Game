@@ -1,6 +1,5 @@
 # Importing Modules
 import pygame
-import requests 
 
 # Initialising pygame module
 pygame.init()
@@ -10,7 +9,7 @@ WIDTH = 1000
 HEIGHT = 900
 
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
-pygame.display.set_caption('Two-Player Chess Game')
+pygame.display.set_caption('Chess Game')
 
 font = pygame.font.Font('freesansbold.ttf', 20)
 medium_font = pygame.font.Font('freesansbold.ttf', 40)
@@ -37,54 +36,41 @@ turn_step = 0
 selection = 100
 valid_moves = []
 
-  
-url = 'https://media.geeksforgeeks.org/wp-content/uploads/'
-image_urls = ['20240229141134/black_queen.jpg', '20240229141131/black_king.jpg', '20240229141135/black_rook.jpg','20240229141130/black_bishop.jpg', '20240229141132/black_knight.jpg', '20240229141133/black_pawn.jpg', '20240229141140/white_queen.jpg', '20240229141137/white_king.jpg', '20240229141141/white_rook.jpg', '20240229141138/white_knight.jpg', '20240229141136/white_bishop.jpg', '20240229141139/white_pawn.jpg']
-
-for i in image_urls:
-    new_url = url + i
-    data = requests.get(new_url).content 
-    f = open('./Images/'+i[i.index("/"):],'wb')   
-    f.write(data) 
-    f.close() 
-  
-
-
 # load in game piece images (queen, king, rook, bishop, knight, pawn) x 2
-black_queen = pygame.image.load('./Images/black_queen.jpg')
+black_queen = pygame.image.load('./images/black_queen.png')
 black_queen = pygame.transform.scale(black_queen, (80, 80))
 black_queen_small = pygame.transform.scale(black_queen, (45, 45))
-black_king = pygame.image.load('./Images/black_king.jpg')
+black_king = pygame.image.load('./images/black_king.png')
 black_king = pygame.transform.scale(black_king, (80, 80))
 black_king_small = pygame.transform.scale(black_king, (45, 45))
-black_rook = pygame.image.load('./Images/black_rook.jpg')
+black_rook = pygame.image.load('./images/black_rook.png')
 black_rook = pygame.transform.scale(black_rook, (80, 80))
 black_rook_small = pygame.transform.scale(black_rook, (45, 45))
-black_bishop = pygame.image.load('./Images/black_bishop.jpg')
+black_bishop = pygame.image.load('./images/black_bishop.png')
 black_bishop = pygame.transform.scale(black_bishop, (80, 80))
 black_bishop_small = pygame.transform.scale(black_bishop, (45, 45))
-black_knight = pygame.image.load('./Images/black_knight.jpg')
+black_knight = pygame.image.load('./images/black_knight.png')
 black_knight = pygame.transform.scale(black_knight, (80, 80))
 black_knight_small = pygame.transform.scale(black_knight, (45, 45))
-black_pawn = pygame.image.load('./Images/black_pawn.jpg')
+black_pawn = pygame.image.load('./images/black_pawn.png')
 black_pawn = pygame.transform.scale(black_pawn, (65, 65))
 black_pawn_small = pygame.transform.scale(black_pawn, (45, 45))
-white_queen = pygame.image.load('./Images/white_queen.jpg')
+white_queen = pygame.image.load('./images/white_queen.png')
 white_queen = pygame.transform.scale(white_queen, (80, 80))
 white_queen_small = pygame.transform.scale(white_queen, (45, 45))
-white_king = pygame.image.load('./Images/white_king.jpg')
+white_king = pygame.image.load('./images/white_king.png')
 white_king = pygame.transform.scale(white_king, (80, 80))
 white_king_small = pygame.transform.scale(white_king, (45, 45))
-white_rook = pygame.image.load('./Images/white_rook.jpg')
+white_rook = pygame.image.load('./images/white_rook.png')
 white_rook = pygame.transform.scale(white_rook, (80, 80))
 white_rook_small = pygame.transform.scale(white_rook, (45, 45))
-white_bishop = pygame.image.load('./Images/white_bishop.jpg')
+white_bishop = pygame.image.load('./images/white_bishop.png')
 white_bishop = pygame.transform.scale(white_bishop, (80, 80))
 white_bishop_small = pygame.transform.scale(white_bishop, (45, 45))
-white_knight = pygame.image.load('./Images/white_knight.jpg')
+white_knight = pygame.image.load('./images/white_knight.png')
 white_knight = pygame.transform.scale(white_knight, (80, 80))
 white_knight_small = pygame.transform.scale(white_knight, (45, 45))
-white_pawn = pygame.image.load('./Images/white_pawn.jpg')
+white_pawn = pygame.image.load('./images/white_pawn.png')
 white_pawn = pygame.transform.scale(white_pawn, (65, 65))
 white_pawn_small = pygame.transform.scale(white_pawn, (45, 45))
 
